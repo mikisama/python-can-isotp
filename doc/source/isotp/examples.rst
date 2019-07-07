@@ -148,7 +148,7 @@ In this example, we see how to configure a :class:`TransportLayer<isotp.Transpor
    def my_rxfn():
        # All my_hardware_something and get_something() function are fictive of course.
        msg = my_hardware_api_recv()
-       return isotp.CanMesage(arbitration_id=msg.get_id(), data=msg.get_data(), dlc=msg.get_dlc(), extended_id=msg.is_extended_id())
+       return isotp.CanMessage(arbitration_id=msg.get_id(), data=msg.get_data(), dlc=msg.get_dlc(), extended_id=msg.is_extended_id())
 
 
    def my_txfn(isotp_msg):
@@ -186,7 +186,7 @@ A clean way to overcome this limitation is to use a ``functools.partial`` functi
    # hardware_handle is passed through partial func
    def my_rxfn(hardware_handle):
        msg = my_hardware_api_recv(hardware_handle)
-       return isotp.CanMesage(arbitration_id=msg.get_id(), data=msg.get_data(), dlc=msg.get_dlc(), extended_id=msg.is_extended_id())
+       return isotp.CanMessage(arbitration_id=msg.get_id(), data=msg.get_data(), dlc=msg.get_dlc(), extended_id=msg.is_extended_id())
 
    # hardware_handle is passed through partial func
    def my_txfn(hardware_handle, isotp_msg):
